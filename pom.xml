@@ -8,6 +8,7 @@
 	<version>1.0.0</version>
 	<name>ex1-hello-jpa</name>
 	<description>ex1-hello-jpa</description>
+
 	<properties>
 		<java.version>11</java.version>
 		<maven.compiler.source>11</maven.compiler.source>

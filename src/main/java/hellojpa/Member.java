@@ -9,26 +9,17 @@ import javax.persistence.*;
 @Table
 public class Member {
 
-    @Id @GeneratedValue
-    private String id;
+    @Id @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name="MEMBER_ID")
+    private Long id;
 
-    @Column(name = "name", nullable = false, columnDefinition = "varchar(100) default 'EMPTY'")
-    private String username;
+    @Column(name="USERFNAME")
+    private String name;
 
-    private Integer age;
+//    @Column(name="TEAM_ID")
+//    private Long teamId;
 
-    @Enumerated(EnumType.STRING)
-    private RoleType roleType;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date createdDate;
-
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date lastModifiedDate;
-
-    @Lob
-    private String description;
-
-    @Transient
-    private int temp;
+    @ManyToOne
+    @JoinColumn(name = "TEAM_ID")
+    private Team team;
 }
