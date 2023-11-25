@@ -31,18 +31,22 @@ public class JpaMain {
             member.setTeam(team1);
             em.persist(member);
 
-
-            System.out.println("===============");
+            System.out.println("======== DB 쿼리 확인 ========");
             em.flush();
             em.clear();
-            System.out.println("===============");
+            System.out.println("=============================");
 
+            //
             Member findMember = em.find(Member.class, member.getId());
-            Team findTeam = findMember.getTeam();
+            List<Member> members = findMember.getTeam().getMembers();
 
-            System.out.println("findTeam = " + findTeam.getName());
+            for(Member m : members){
+                System.out.println("m = " + m.getName());
+            }
 
+            System.out.println("======= before commit =======");
             tx.commit();
+            System.out.println("======= after commit =======");
 
         } catch (Exception e) {
             tx.rollback();
