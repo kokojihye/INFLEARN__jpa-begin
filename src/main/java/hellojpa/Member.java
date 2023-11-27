@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Getter @Setter
 @NoArgsConstructor @AllArgsConstructor
 @Table
-public class Member {
+public class Member extends BaseEntity{
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="MEMBER_ID")
