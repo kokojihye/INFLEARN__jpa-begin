@@ -18,35 +18,21 @@ public class JpaMain {
         //transaction begin
         tx.begin();
         try{
-            Team team1 = new Team();
-            team1.setName("Team A");
-            em.persist(team1);
+            Movie movie = new Movie();
+            movie.setDirector("봉준호");
+            movie.setActor("송강호");
+            movie.setName("기생충");
+            movie.setPrice(15000);
 
-            Team team2 = new Team();
-            team2.setName("Team A");
-            em.persist(team2);
+            em.persist(movie);
 
-            Member member = new Member();
-            member.setName("member1");
-            member.setTeam(team1);
-            em.persist(member);
-
-            System.out.println("======== DB 쿼리 확인 ========");
             em.flush();
             em.clear();
-            System.out.println("=============================");
 
-            //
-            Member findMember = em.find(Member.class, member.getId());
-            List<Member> members = findMember.getTeam().getMembers();
+            Movie findMovie = em.find(Movie.class, movie.getId());
+            System.out.println("findMovie = " + findMovie);
 
-            for(Member m : members){
-                System.out.println("m = " + m.getName());
-            }
-
-            System.out.println("======= before commit =======");
             tx.commit();
-            System.out.println("======= after commit =======");
 
         } catch (Exception e) {
             tx.rollback();
