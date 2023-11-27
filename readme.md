@@ -1,6 +1,9 @@
+# 엔티티 설계와 매핑
+![image](https://github.com/kokojihye/INFLEARN__jpa-begin/assets/95533614/187b8896-6cf6-478f-bd85-bb4cc9beddcb)
+
 
 # 데이터 중심 설계의 문제점
-* example1의 방식은 객체 설계를 테이블 설계에 맞춘 방식이다.
+* `example1`의 방식은 객체 설계를 테이블 설계에 맞춘 방식이다.
   * Order에 MemberId가 존재하기 때문에, 객체를 바로 끄집어낼 수 없고, memberId를 통해 다시 조회해야 하기 때문이다.
   * 이와 같은 방식은 객체 지향 설계를 위반한다고 볼 수 있다.
 * 테이블의 외래키를 객체에 그대로 가져온다.
